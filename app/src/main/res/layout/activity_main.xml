@@ -1,0 +1,27 @@
+<cn.xm.weidongjian.verticaldrawerlayout.DragLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/dragView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@android:color/holo_blue_light"/>
+
+    <ListView
+        android:scrollbars="none"
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/holo_green_light"/>
+
+   <!-- <TextView
+        android:id="@+id/contentView"
+        android:text="dfdsafsafsaf"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/holo_green_light"/>-->
+
+</cn.xm.weidongjian.verticaldrawerlayout.DragLayout>
