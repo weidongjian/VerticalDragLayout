@@ -3,7 +3,6 @@ package cn.xm.weidongjian.verticaldrawerlayout;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -59,7 +58,6 @@ public class DragLayout extends LinearLayout {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-
             contentView.layout(0, top + mDragView.getHeight(), getWidth(), top + mDragView.getHeight() + dragRange);
         }
 
@@ -102,11 +100,6 @@ public class DragLayout extends LinearLayout {
 
     @Override
     public boolean onInterceptHoverEvent(MotionEvent event) {
-        final int action = MotionEventCompat.getActionMasked(event);
-        if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-            dragHelper.cancel();
-            return false;
-        }
         return dragHelper.shouldInterceptTouchEvent(event);
     }
 
@@ -116,13 +109,13 @@ public class DragLayout extends LinearLayout {
         return true;
     }
 
-    private void smoothToTop() {
+    public void smoothToTop() {
         if (dragHelper.smoothSlideViewTo(mDragView, getPaddingLeft(), getHeight() - dragRange - mDragView.getHeight())) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
-    private void smoothToBottom() {
+    public void smoothToBottom() {
         if (dragHelper.smoothSlideViewTo(mDragView, getPaddingLeft(), getHeight() - mDragView.getHeight())) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
